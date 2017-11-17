@@ -1,6 +1,3 @@
-/**
- * Created by Serg on 12.10.2017.
- */
 public class SudokyElement {
     private int coordX;
     private int coordY;

@@ -1,4 +1,8 @@
 final class Constants {
+
+/*
+    Судоку финского математика Арто Инкала, считается самым сложным в мире
+*/
     static final int [][] sudokuArtoInkala =
             {
                     {8,0,0,0,0,0,0,0,0},

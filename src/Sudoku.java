@@ -3,12 +3,15 @@ import java.util.Stack;
 
 public class Sudoku {
 
-    private int[][] field;                  // Рабочее поле судоку - матрица
+    private int[][] field;            // Рабочее поле судоку - матрица
+    private int[][] startfield;       // Стартовая матрица (условие задачи). Нужна для красивого вывода в консоль.
 
 
-    Sudoku(int[][] startField) {            // Конструктор
+    Sudoku ( int[][] startField ) {            // Конструктор
         field = new int[9][9];
+        startfield = new int[9][9];
         System.arraycopy(startField,0, field,0,9);
+        System.arraycopy(startField,0, startfield,0,9);
     }
 
 
