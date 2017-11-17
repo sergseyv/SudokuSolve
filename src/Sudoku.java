@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Stack;
 
 
@@ -7,11 +8,9 @@ public class Sudoku {
     private int[][] startfield;       // Стартовая матрица (условие задачи). Нужна для красивого вывода в консоль.
 
 
-    Sudoku ( int[][] startField ) {            // Конструктор
-        field = new int[9][9];
-        startfield = new int[9][9];
-        System.arraycopy(startField,0, field,0,9);
-        System.arraycopy(startField,0, startfield,0,9);
+    public Sudoku ( int[][] field ) {
+        startfield = Arrays.copyOf(field, field.length);
+        this.field = field;
     }
 
 

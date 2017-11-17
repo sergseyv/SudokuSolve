@@ -11,5 +11,6 @@ public class Main {
 
         sudoku1.solve();
         System.out.println(sudoku1);
+
     }
 }
