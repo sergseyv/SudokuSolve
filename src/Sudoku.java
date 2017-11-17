@@ -3,14 +3,11 @@ import java.util.Stack;
 
 public class Sudoku {
 
-    /*Рабочее поле судоку - матрица*/
-    private int[][] field;
+    private int[][] field;                  // Рабочее поле судоку - матрица
 
-    public Sudoku(int[][] startField) {     // Конструктор
+    Sudoku(int[][] startField) {            // Конструктор
         field = new int[9][9];              // Инициализация рабочего поля
-        for (int x = 0; x < 9; x++)             // Заполение его значениями из условия задачи
-            for (int y = 0; y < 9; y++)
-                field[x][y] = startField[x][y];
+        System.arraycopy(startField,0, field,0,9);
     }
 
     /* Переопределение вывода матрицы*/
@@ -18,8 +15,11 @@ public class Sudoku {
     public String toString() {
         StringBuilder result = new StringBuilder();
         for(int[] row : field) {
-            for(int elem : row)
-                result.append(elem + " ");
+            for(int elem : row) {
+                if ( elem == 0 ) result.append("*");
+                    else result.append(elem);
+                result.append(" ");
+            }
             result.append("\n");
         }
         return result.toString();
@@ -89,7 +89,7 @@ public class Sudoku {
 
                     /*Проверка элементов на уникальность в строке, столбце и квадрате 3х3*/
                     for (int val = startValue; (!elemFound) & (val < 10); val++){
-                        if (isUnique(val, x, y)) {     //нашли того, кто прошел 3 чека
+                        if (isUnique(val, x, y)) {     //нашли того, кто прошел все 3 проверки
                             field[x][y] = val;
                             elemFound = true;
                             stHypothesis.push(new SudokyElement(x, y, val));

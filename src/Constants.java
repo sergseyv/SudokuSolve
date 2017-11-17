@@ -1,8 +1,8 @@
 /**
  * Created by Seyvach Serg on 17.11.2017.
  */
-public final class Constants {
-    static final int [][] sudokuTest001 =
+final class Constants {
+    static final int [][] sudokuArtoInkala =
             {
                     {8,0,0,0,0,0,0,0,0},
                     {0,0,3,6,0,0,0,0,0},
