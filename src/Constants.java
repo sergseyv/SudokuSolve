@@ -1,6 +1,3 @@
-/**
- * Created by Seyvach Serg on 17.11.2017.
- */
 final class Constants {
     static final int [][] sudokuArtoInkala =
             {
