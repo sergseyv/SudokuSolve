@@ -1,4 +1,5 @@
 class SudokyElement {
+
     private int coordX;
     private int coordY;
     private int value;

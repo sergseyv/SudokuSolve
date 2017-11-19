@@ -11,8 +11,9 @@ public class Sudoku {
 
         field = new int[9][9];
         startfield = new int[9][9];
-        for(int x=0; x<9; x++) {
-            for(int y=0; y<9; y++) {
+
+        for ( int x = 0; x < 9; x++) {  //заполняем матрицы - рабочую и стартовую
+            for ( int y = 0; y < 9; y++) {
                 startfield[x][y] = taskField[x][y];
                 field[x][y] = taskField[x][y];
             }
@@ -103,7 +104,7 @@ public class Sudoku {
         return result;
     }
 
-
+    // одна итерация решения
     private void oneStep(int inputStartX, int inputStartY, int inputStartValue, Stack<SudokyElement> stHypothesis){
 
         boolean incorrectHypothesis = false;    //признак того, что вычисление пошло по неверной гипотезе
