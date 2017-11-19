@@ -1,23 +1,23 @@
-public class SudokyElement {
+class SudokyElement {
     private int coordX;
     private int coordY;
     private int value;
 
-    public SudokyElement(int coordX, int coordY, int value) {
+    SudokyElement(int coordX, int coordY, int value) {
         this.coordX = coordX;
         this.coordY = coordY;
         this.value = value;
     }
 
-    public int getCoordX(){
+    int getCoordX(){
         return coordX;
     }
 
-    public int getCoordY(){
+    int getCoordY(){
         return coordY;
     }
 
-    public int getValue(){
+    int getValue(){
         return value;
     }
 }

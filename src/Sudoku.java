@@ -5,11 +5,8 @@ import java.util.Stack;
 public class Sudoku {
 
     private int[][] field;            // Рабочее поле судоку - матрица
-    private int[][] startfield;       // Стартовая матрица (условие задачи). Нужна для красивого вывода в консоль.
 
-
-    public Sudoku ( int[][] field ) {
-        startfield = Arrays.copyOf(field, field.length);
+    Sudoku ( int[][] field ) {
         this.field = field;
     }
 
@@ -143,6 +140,8 @@ public class Sudoku {
 
             oneStep(x, y,k + 1, stHypothesis);
         }
+        if ( isSolved() ) System.out.println("Sudoku solved!");
+            else System.out.println("Sudoku has no solution.");
     }
 
     private boolean isSolved(){
