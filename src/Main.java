@@ -6,11 +6,17 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Sudoku sudoku1 = new Sudoku(Constants.sudokuArtoInkala);
-        System.out.println(sudoku1);
+        Sudoku sudokuAI = new Sudoku(Constants.sudokuArtoInkala);
+        sudokuAI.solve();
 
-        sudoku1.solve();
-        System.out.println(sudoku1);
+        Sudoku sudokuEx1 = new Sudoku(Constants.sudokuExample1);
+        sudokuEx1.solve();
+
+        Sudoku sudokuNoSol = new Sudoku(Constants.sudokuNoSolution);
+        sudokuNoSol.solve();
+
+        Sudoku sudokuEx2 = new Sudoku(Constants.sudokuExample2);
+        sudokuEx2.solve();
 
     }
 }

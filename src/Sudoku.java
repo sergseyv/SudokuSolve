@@ -1,27 +1,45 @@
-import java.util.Arrays;
 import java.util.Stack;
 
 
 public class Sudoku {
 
     private int[][] field;            // Рабочее поле судоку - матрица
+    private int[][] startfield;       // Хранит стартовое состояние (условие задачи)
 
-    Sudoku ( int[][] field ) {
-        this.field = field;
+
+    Sudoku ( int[][] taskField ) {
+
+        field = new int[9][9];
+        startfield = new int[9][9];
+        for(int x=0; x<9; x++) {
+            for(int y=0; y<9; y++) {
+                startfield[x][y] = taskField[x][y];
+                field[x][y] = taskField[x][y];
+            }
+        }
     }
 
 
-    /* Переопределение вывода матрицы*/
+    /* Переопределение вывода судоку*/
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
-        for(int[] row : field) {
-            for(int elem : row) {
-                if ( elem == 0 ) result.append("*");
-                    else result.append(elem);
-                result.append(" ");
+
+        for ( int x = 0; x < 9; x++ ) {
+            StringBuilder resStart = new StringBuilder();
+            StringBuilder resSolve = new StringBuilder();
+
+            for ( int y = 0; y < 9; y++ ) {
+
+                if ( startfield[x][y] == 0 ) resStart.append("*");
+                else resStart.append ( startfield[x][y] );
+                resStart.append(" ");
+
+                if ( field[x][y] == 0 ) resSolve.append("*");
+                else resSolve.append ( field[x][y] );
+                resSolve.append(" ");
             }
-            result.append("\n");
+            result.append(resStart.toString()).append("     ").append(resSolve.toString()).append("\n");
         }
         return result.toString();
     }
@@ -123,6 +141,7 @@ public class Sudoku {
         }
     }
 
+
     void solve(){
 
         Stack<SudokyElement> stHypothesis = new Stack<>();
@@ -140,9 +159,15 @@ public class Sudoku {
 
             oneStep(x, y,k + 1, stHypothesis);
         }
-        if ( isSolved() ) System.out.println("Sudoku solved!");
-            else System.out.println("Sudoku has no solution.");
+
+        if ( isSolved() )
+            System.out.println("Sudoku solved!");
+        else
+            System.out.println("Sudoku has no solution.");
+
+        System.out.println(this);
     }
+
 
     private boolean isSolved(){
 
